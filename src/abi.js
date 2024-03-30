@@ -259,7 +259,7 @@ export const CONTRACT_ABI = [
         "type": "uint256"
       }
     ],
-    "name": "crossChainTransfeer",
+    "name": "bridgePMT",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
