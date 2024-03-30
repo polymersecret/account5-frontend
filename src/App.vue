@@ -45,7 +45,8 @@ import Web3 from 'web3';
 import BigNumber from "bignumber.js";
 import { CONTRACT_ABI } from './abi.js';
 
-const CONTRACT_ADDRESS = '0xc958C5Ed8f1deAc4B1763889a45a6a24d9EF3871'
+const OP_PORT_ADDRESS = '0xE525FAAA769d40506fc0261dAe775a0a41a7B257'
+const BASE_PORT_ADDRESS = '0xC29d78Bd9db700Ad2dc5cABc7e410cF28bc2e8BB'
 
 export default {
   name: 'App',
@@ -96,8 +97,11 @@ export default {
         const web3 = new Web3(window.ethereum);
         await window.ethereum.enable();
         this.isLoading = true
-        const receipt = await new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS).methods.crossChainTransfeer(
-          CONTRACT_ADDRESS,
+        const receipt = await new web3.eth.Contract(
+          CONTRACT_ABI, 
+          chain === 'op' ? OP_PORT_ADDRESS : BASE_PORT_ADDRESS
+          ).methods.crossChainTransfeer(
+            chain === 'op' ? BASE_PORT_ADDRESS : OP_PORT_ADDRESS,
           web3.utils.padRight(web3.utils.asciiToHex(chain === 'op' ? 'channel-10' : 'channel-11'), 64),
           this.transfer2Erc20Decimal(this.ibcAmount)
         ).send({ from: this.currentAccount });
@@ -130,7 +134,7 @@ export default {
     },
     async getBalance() {
       try {
-        const opContract = new (new Web3('https://sepolia.optimism.io')).eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
+        const opContract = new (new Web3('https://sepolia.optimism.io')).eth.Contract(CONTRACT_ABI, OP_PORT_ADDRESS);
         const opBalance = await opContract.methods.balanceOf(
           this.currentAccount,
         ).call();
@@ -142,7 +146,7 @@ export default {
         console.error(error);
       }
       try {
-        const baseContract = new (new Web3('https://sepolia.base.org')).eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
+        const baseContract = new (new Web3('https://sepolia.base.org')).eth.Contract(CONTRACT_ABI, BASE_PORT_ADDRESS);
         const baseBalance = await baseContract.methods.balanceOf(
           this.currentAccount,
         ).call();
