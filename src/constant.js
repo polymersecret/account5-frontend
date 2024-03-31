@@ -1,4 +1,4 @@
-export const bridgeAbi = [
+export const cross_chain_bridge_abi = [
   {
     "inputs": [
       {
@@ -567,7 +567,7 @@ export const bridgeAbi = [
         "type": "uint256"
       }
     ],
-    "name": "sendTx",
+    "name": "sendCrossChainTransaction",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -729,5 +729,5 @@ export const bridgeAbi = [
   }
 ]
 
-export const opBridge = '0x778E7d254B9c609d4542b2109EA86212C6eFe4E9';
-export const baseBridge = '0x778E7d254B9c609d4542b2109EA86212C6eFe4E9';
+export const op_cross_chain_bridge = '0xac3d517d5ed9f0715eA067aA0b437A0aF5E28697';
+export const base_cross_chain_bridge = '0xac3d517d5ed9f0715eA067aA0b437A0aF5E28697';
