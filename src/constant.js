@@ -1,4 +1,4 @@
-export const CONTRACT_ABI = [
+export const bridgeAbi = [
   {
     "inputs": [
       {
@@ -239,29 +239,6 @@ export const CONTRACT_ABI = [
       }
     ],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "destPortAddr",
-        "type": "address"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "channelId",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      }
-    ],
-    "name": "bridgePMT",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -576,6 +553,29 @@ export const CONTRACT_ABI = [
     "inputs": [
       {
         "internalType": "address",
+        "name": "destPortAddr",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "channelId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "sendTx",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
         "name": "_middleware",
         "type": "address"
       }
@@ -728,3 +728,6 @@ export const CONTRACT_ABI = [
     "type": "receive"
   }
 ]
+
+export const opBridge = '0x778E7d254B9c609d4542b2109EA86212C6eFe4E9';
+export const baseBridge = '0x778E7d254B9c609d4542b2109EA86212C6eFe4E9';
