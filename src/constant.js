@@ -1,4 +1,4 @@
-export const cross_chain_bridge_abi = [
+export const abi = [
   {
     "inputs": [
       {
@@ -282,6 +282,29 @@ export const cross_chain_bridge_abi = [
     "inputs": [
       {
         "internalType": "address",
+        "name": "destPortAddr",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "channelId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "ibcBridgeSend",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
         "name": "spender",
         "type": "address"
       },
@@ -553,29 +576,6 @@ export const cross_chain_bridge_abi = [
     "inputs": [
       {
         "internalType": "address",
-        "name": "destPortAddr",
-        "type": "address"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "channelId",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-      }
-    ],
-    "name": "sendCrossChainTransaction",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
         "name": "_middleware",
         "type": "address"
       }
@@ -729,5 +729,5 @@ export const cross_chain_bridge_abi = [
   }
 ]
 
-export const op_cross_chain_bridge = '0xac3d517d5ed9f0715eA067aA0b437A0aF5E28697';
-export const base_cross_chain_bridge = '0xac3d517d5ed9f0715eA067aA0b437A0aF5E28697';
+export const opBridge = '0x5D96F7647ABcBA28327A6486f54D4c0d9b56251b';
+export const baseBridge = '0x5D96F7647ABcBA28327A6486f54D4c0d9b56251b';
